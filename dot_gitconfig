@@ -1,0 +1,45 @@
+# This is Git's per-user configuration file.
+[user]
+	useConfigOnly = true
+[help]
+        autocorrect = prompt
+[rebase]
+        autoStash = true
+        updateRefs = true
+[core]
+        autocrlf = input
+[filter "lfs"]
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
+[tag]
+        sort = version:refname
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[push]
+        autoSetupRemote = true
+        followTags = true
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+[commit]
+        verbose = true
+[pull]
+        rebase = true
+[alias]
+	co = checkout
+	s = status -sb
+	ll = log --oneline
+	last = log -1 HEAD --stat
+	cm = commit
+	d = diff
+	ds = diff --stat

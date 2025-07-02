@@ -1,0 +1,68 @@
+HISTFILE=~/.zhistory
+HISTSIZE=1000000
+SAVEHIST=1000000
+bindkey -e
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+BREW_PREFIX=$(brew --prefix)
+
+FPATH="$BREW_PREFIX/share/zsh-completions:$FPATH"
+
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/noam/.zshrc'
+
+autoload -Uz compinit
+autoload -U +X bashcompinit && bashcompinit
+compinit
+complete -o nospace -C /home/linuxbrew/.linuxbrew/bin/terragrunt terragrunt
+# End of lines added by compinstall
+
+source $BREW_PREFIX/opt/antidote/share/antidote/antidote.zsh
+antidote load
+
+# Use bash-like word definitions for navigation and operations
+autoload -Uz select-word-style
+select-word-style bash
+setopt noautomenu
+setopt nobeep
+
+# Use C-w to kill back to the previous space
+zle -N backward-kill-space-word backward-kill-word-match
+zstyle :zle:backward-kill-space-word word-style space
+bindkey '^W' backward-kill-space-word
+
+bindkey '\e[1;5C' forward-word        # ctrl right
+bindkey '\e[1;5D' backward-word       # ctrl left
+
+eval "$(starship init zsh)"
+
+# HSTR configuration
+alias hh=hstr                    # hh to be alias for hstr
+setopt histignorespace           # skip cmds w/ leading space from history
+export HSTR_CONFIG=hicolor       # get more colors
+# bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
+# export HSTR_TIOCSTI=y
+
+# https://github.com/dvorka/hstr/issues/452
+hstr_no_tiocsti() {
+    zle -I
+    { HSTR_OUT="$( { </dev/tty hstr ${BUFFER}; } 2>&1 1>&3 3>&- )"; } 3>&1;
+    BUFFER="${HSTR_OUT}"
+    CURSOR=${#BUFFER}
+    zle redisplay
+}
+zle -N hstr_no_tiocsti
+bindkey '\C-r' hstr_no_tiocsti
+export HSTR_TIOCSTI=n
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+alias gprunesquashmerged='git checkout -q develop && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base develop $branch) && [[ $(git cherry develop $(git commit-tree $(git rev-parse "$branch^{tree}") -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
+alias tg=terragrunt
+
+export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts:$HOME/.local/bin"

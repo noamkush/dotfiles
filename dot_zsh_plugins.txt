@@ -1,0 +1,11 @@
+lukechilds/zsh-nvm
+mattberther/zsh-pyenv
+z-shell/zsh-eza
+rupa/z
+
+getantidote/use-omz        # handle OMZ dependencies
+ohmyzsh/ohmyzsh path:lib   # load OMZ's library
+ohmyzsh/ohmyzsh path:plugins/gitfast
+
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
