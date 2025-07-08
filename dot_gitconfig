@@ -43,3 +43,4 @@
 	cm = commit
 	d = diff
 	ds = diff --stat
+	rso = reset --hard @{u}
