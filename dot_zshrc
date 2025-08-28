@@ -65,5 +65,4 @@ fi
 alias gprunesquashmerged='git checkout -q develop && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base develop $branch) && [[ $(git cherry develop $(git commit-tree $(git rev-parse "$branch^{tree}") -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias tg=terragrunt
 
-export PATH="$PATH:$HOME/.local/share/JetBrains/Toolbox/scripts:$HOME/.local/bin"
 export TG_LOG_CUSTOM_FORMAT="%time(format=H:i,color=light-black) %prefix(path=short-relative,color=gradient,suffix=': ')%msg(path=relative)"
