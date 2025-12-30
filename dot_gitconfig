@@ -8,6 +8,7 @@
         updateRefs = true
 [core]
         autocrlf = input
+	pager = delta
 [filter "lfs"]
         clean = git-lfs clean -- %f
         smudge = git-lfs smudge -- %f
@@ -44,3 +45,9 @@
 	d = diff
 	ds = diff --stat
 	rso = reset --hard @{u}
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+[merge]
+	conflictstyle = zdiff3
