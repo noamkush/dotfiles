@@ -3,6 +3,15 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 bindkey -e
 
+# Disable real-time history sharing between concurrent sessions
+unsetopt SHARE_HISTORY
+
+# Write to the history file immediately after each command (prevents loss on crash)
+setopt INC_APPEND_HISTORY
+
+# Append history to the history file (default, but good to be explicit)
+setopt APPEND_HISTORY
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 BREW_PREFIX=$(brew --prefix)
 
