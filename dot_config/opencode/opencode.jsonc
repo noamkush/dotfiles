@@ -3,13 +3,27 @@
   "permission": {
     "bash": {
       "*": "ask",
+      "awk *": "allow",
+      "cat *": "allow",
+      "diff *": "allow",
+      "echo *": "allow",
       "find *": "allow",
+      "git diff *": "allow",
+      "git log *": "allow",
+      "git show *": "allow",
+      "git status *": "allow",
       "grep *": "allow",
       "head *": "allow",
       "ls *": "allow",
+      "mkdir *": "allow",
+      "rg *": "allow",
+      "sort *": "allow",
       "tail *": "allow",
+      "wc *": "allow",
       "xargs grep *": "allow",
+      "xargs rg *": "allow",
       "poetry run mypy *": "allow",
+      "poetry run pylint *": "allow",
       "poetry run pytest *": "allow",
       "poetry run ruff *": "allow"
     },
@@ -30,6 +44,14 @@
     "sentry": {
       "type": "remote",
       "url": "https://mcp.sentry.dev/mcp"
+    },
+    "scrapling": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "scrapling[ai]",
+        "mcp"
+      ]
     }
   }
 }
