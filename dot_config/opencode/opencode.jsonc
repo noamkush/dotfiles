@@ -17,15 +17,21 @@
       "ls *": "allow",
       "mkdir *": "allow",
       "rg *": "allow",
+      "ruff *": "allow",
+      "sed *": "allow",
       "sort *": "allow",
       "tail *": "allow",
       "wc *": "allow",
       "xargs grep *": "allow",
       "xargs rg *": "allow",
+      "poetry env info *": "allow",
       "poetry run mypy *": "allow",
       "poetry run pylint *": "allow",
       "poetry run pytest *": "allow",
-      "poetry run ruff *": "allow"
+      "poetry run ruff *": "allow",
+      "python -m flake8 *": "allow",
+      "python -m mypy *": "allow",
+      "python -m pytest *": "allow"
     },
     "external_directory": {
       "~/.cache/pypoetry/virtualenvs/**": "allow"
