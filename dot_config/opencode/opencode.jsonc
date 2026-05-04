@@ -23,6 +23,7 @@
       "tail *": "allow",
       "wc *": "allow",
       "xargs grep *": "allow",
+      "xargs head *": "allow",
       "xargs rg *": "allow",
       "poetry env info *": "allow",
       "poetry run mypy *": "allow",
