@@ -35,12 +35,14 @@
       "python -m pytest *": "allow"
     },
     "external_directory": {
-      "~/.cache/pypoetry/virtualenvs/**": "allow"
+      "~/.cache/pypoetry/virtualenvs/**": "allow",
+      "~/.cache/uv/archive-v0/**": "allow"
     },
     "edit": {
       "*": "allow",
       "*.env": "deny",
-      "~/.cache/pypoetry/virtualenvs/**": "deny"
+      "~/.cache/pypoetry/virtualenvs/**": "deny",
+      "~/.cache/uv/archive-v0/**": "deny"
     }
   },
   "mcp": {
@@ -58,6 +60,13 @@
         "uvx",
         "scrapling[ai]",
         "mcp"
+      ]
+    },
+    "tree_sitter": {
+      "type": "local",
+      "command": [
+        "uvx",
+        "mcp-server-tree-sitter"
       ]
     }
   }
