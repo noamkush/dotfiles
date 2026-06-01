@@ -7,3 +7,5 @@ export LESS='--no-init -R --shift 4 --LONG-PROMPT --quit-if-one-screen --silent 
 if [ -f "$HOME/.zshenv.local" ]; then
 	source "$HOME/.zshenv.local"
 fi
+
+export PATH="$PATH:$HOME/.local/bin"

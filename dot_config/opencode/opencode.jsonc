@@ -36,7 +36,7 @@
       "uv run mypy *": "allow",
       "uv run pylint *": "allow",
       "uv run pytest *": "allow",
-      "uv run ruff *": "allow",
+      "uv run ruff *": "allow"
     },
     "external_directory": {
       "~/.cache/pypoetry/virtualenvs/**": "allow",
@@ -57,21 +57,9 @@
     "sentry": {
       "type": "remote",
       "url": "https://mcp.sentry.dev/mcp"
-    },
-    "scrapling": {
-      "type": "local",
-      "command": [
-        "uvx",
-        "scrapling[ai]",
-        "mcp"
-      ]
-    },
-    "tree_sitter": {
-      "type": "local",
-      "command": [
-        "uvx",
-        "mcp-server-tree-sitter"
-      ]
     }
-  }
+  },
+  "plugin": [
+    "opencode-snip@latest"
+  ],
 }
