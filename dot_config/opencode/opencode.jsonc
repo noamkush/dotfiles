@@ -10,6 +10,8 @@
       "find *": "allow",
       "git diff *": "allow",
       "git log *": "allow",
+      "git rev-list *": "allow",
+      "git rev-parse *": "allow",
       "git show *": "allow",
       "git status *": "allow",
       "grep *": "allow",
