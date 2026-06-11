@@ -75,3 +75,5 @@ alias gprunesquashmerged='git checkout -q develop && git for-each-ref refs/heads
 alias tg=terragrunt
 
 export TG_LOG_CUSTOM_FORMAT="%time(format=H:i,color=light-black) %prefix(path=short-relative,color=gradient,suffix=': ')%msg(path=relative)"
+
+export UV_PYTHON_PREFERENCE=only-managed

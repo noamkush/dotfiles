@@ -61,7 +61,4 @@
       "url": "https://mcp.sentry.dev/mcp"
     }
   },
-  "plugin": [
-    "opencode-snip@latest"
-  ],
 }
