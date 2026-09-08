@@ -6,6 +6,7 @@
       "awk *": "allow",
       "cat *": "allow",
       "diff *": "allow",
+      "docker info": "allow",
       "du *": "allow",
       "echo *": "allow",
       "find *": "allow",
