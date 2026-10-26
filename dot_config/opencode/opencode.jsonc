@@ -5,14 +5,16 @@
       "*": "ask",
       "awk *": "allow",
       "cat *": "allow",
+      "cut *": "allow",
       "diff *": "allow",
       "docker info": "allow",
       "du *": "allow",
       "echo *": "allow",
       "find *": "allow",
       "gh issue view *": "allow",
-      "gh pr view *": "allow",
       "gh pr diff *": "allow",
+      "gh pr list *": "allow",
+      "gh pr view *": "allow",
       "gh project view *": "allow",
       "gh repo view *": "allow",
       "gh run view *": "allow",
@@ -22,8 +24,11 @@
       "git branch --show-current": "allow",
       "git branch -a": "allow",
       "git branch -vv": "allow",
+      "git config --get *": "allow",
+      "git count-objects *": "allow",
       "git describe *": "allow",
       "git diff *": "allow",
+      "git fetch *": "allow",
       "git grep *": "allow",
       "git log *": "allow",
       "git ls-files *": "allow",
@@ -47,8 +52,11 @@
       "ruff *": "allow",
       "sed *": "allow",
       "sort *": "allow",
+      "tac *": "allow",
       "tail *": "allow",
       "test *": "allow",
+      "touch *": "allow",
+      "tr *": "allow",
       "wc *": "allow",
       "xargs grep *": "allow",
       "xargs head *": "allow",
@@ -79,10 +87,22 @@
   },
   "agent": {
     "explore": {
-      "model": "cursor/composer-2.5",
+      "model": "anthropic/claude-sonnet-5-5"
     },
     "general": {
-      "model": "cursor/composer-2.5",
-    },
+      "model": "anthropic/claude-haiku-5-5"
+    }
   },
+  "small_model": "anthropic/claude-haiku-5-5",
+  "plugins": [
+    "opencode-with-claude"
+  ],
+  "providers": {
+    "anthropic": {
+      "settings": {
+        "baseURL": "http://127.0.0.1:3456/v1",
+        "apiKey": "dummy"
+      }
+    }
+  }
 }
