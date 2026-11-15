@@ -26,6 +26,7 @@
     { "action": "shell", "resource": "git blame *", "effect": "allow" },
     { "action": "shell", "resource": "git branch --show-current", "effect": "allow" },
     { "action": "shell", "resource": "git branch -a", "effect": "allow" },
+    { "action": "shell", "resource": "git branch --list *", "effect": "allow" },
     { "action": "shell", "resource": "git branch -vv", "effect": "allow" },
     { "action": "shell", "resource": "git config --get *", "effect": "allow" },
     { "action": "shell", "resource": "git count-objects *", "effect": "allow" },
@@ -45,6 +46,7 @@
     { "action": "shell", "resource": "git show *", "effect": "allow" },
     { "action": "shell", "resource": "git status *", "effect": "allow" },
     { "action": "shell", "resource": "git tag", "effect": "allow" },
+    { "action": "shell", "resource": "git worktree list", "effect": "allow" },
     { "action": "shell", "resource": "grep *", "effect": "allow" },
     { "action": "shell", "resource": "head *", "effect": "allow" },
     { "action": "shell", "resource": "ls *", "effect": "allow" },
@@ -56,6 +58,7 @@
     { "action": "shell", "resource": "ruff *", "effect": "allow" },
     { "action": "shell", "resource": "sed *", "effect": "allow" },
     { "action": "shell", "resource": "sort *", "effect": "allow" },
+    { "action": "shell", "resource": "sqlite3 -readonly *", "effect": "allow" },
     { "action": "shell", "resource": "tac *", "effect": "allow" },
     { "action": "shell", "resource": "tail *", "effect": "allow" },
     { "action": "shell", "resource": "tar *", "effect": "allow" },
@@ -63,6 +66,7 @@
     { "action": "shell", "resource": "touch *", "effect": "allow" },
     { "action": "shell", "resource": "tr *", "effect": "allow" },
     { "action": "shell", "resource": "wc *", "effect": "allow" },
+    { "action": "shell", "resource": "which *", "effect": "allow" },
     { "action": "shell", "resource": "xargs grep *", "effect": "allow" },
     { "action": "shell", "resource": "xargs head *", "effect": "allow" },
     { "action": "shell", "resource": "xargs rg *", "effect": "allow" },
@@ -82,7 +86,8 @@
 
     // V1 asked before touching paths outside the project; V2 allows them by default.
     { "action": "external_directory", "resource": "*", "effect": "ask" },
-    { "action": "external_directory", "resource": "~/.local/share/opencode/tool-output/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "/tmp/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.local/share/opencode/*", "effect": "allow" },
 
     { "action": "edit", "resource": "*", "effect": "allow" },
     { "action": "edit", "resource": "*.env", "effect": "deny" },
