@@ -40,6 +40,7 @@
     { "action": "shell", "resource": "git ls-files *", "effect": "allow" },
     { "action": "shell", "resource": "git ls-tree *", "effect": "allow" },
     { "action": "shell", "resource": "git merge-base *", "effect": "allow" },
+    { "action": "shell", "resource": "git range-diff *", "effect": "allow" },
     { "action": "shell", "resource": "git reflog *", "effect": "allow" },
     { "action": "shell", "resource": "git remote -v", "effect": "allow" },
     { "action": "shell", "resource": "git remote get-url *", "effect": "allow" },
@@ -85,6 +86,7 @@
     { "action": "shell", "resource": "uv run pylint *", "effect": "allow" },
     { "action": "shell", "resource": "uv run pytest *", "effect": "allow" },
     { "action": "shell", "resource": "uv run ruff *", "effect": "allow" },
+    { "action": "shell", "resource": "uvx prek run *", "effect": "allow" },
 
     // V1 asked before touching paths outside the project; V2 allows them by default.
     { "action": "external_directory", "resource": "*", "effect": "ask" },
@@ -99,7 +101,12 @@
       "model": "anthropic/claude-sonnet-5-5"
     },
     "general": {
-      "model": "anthropic/claude-haiku-5-5"
+      "model": "anthropic/claude-sonnet-5-5"
+    },
+    "reviewer": {
+      "description": "Reviews implementation diffs for correctness, regressions, and drift.",
+      "mode": "subagent",
+      "model": "anthropic/claude-opus-5-5",
     },
     "title": {
       "model": "anthropic/claude-haiku-5-5"
